@@ -6,16 +6,23 @@ public class Player : MonoBehaviour
 {
     [SerializeField] int health = 3;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (anim == null) anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SetMovementAnim(bool status)
+    {
+        anim.SetBool("isWalking", status);
     }
 
     private void Damage()

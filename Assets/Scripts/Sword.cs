@@ -6,12 +6,17 @@ public class Sword : MonoBehaviour
 {
     [SerializeField] Transform pivot = null;
     [SerializeField] PlayerManager playerManager = null;
+    [SerializeField] float swordSpeed = 200f;
+    [SerializeField] float swordGraceTimer = 0.75f;
 
     SpriteRenderer sp;
     Collider2D coll;
 
-    private bool inControl = false;
     private int damage = 1;
+    private float swordBaseTimer = 0f;
+    private bool inControl = false;
+    private bool attacking = false;
+
 
     void Start()
     {
@@ -27,9 +32,30 @@ public class Sword : MonoBehaviour
     {
         CheckControl();
 
+        var mouseCursorSpeed = Input.GetAxis("Mouse X") / Time.deltaTime + Input.GetAxis("Mouse Y") / Time.deltaTime;
+
+        if (Mathf.Abs(mouseCursorSpeed) >= swordSpeed)
+        {
+            Debug.Log(mouseCursorSpeed);
+            Attacking(true);
+            //attacking = true;
+        }
+        else if (Mathf.Abs(mouseCursorSpeed) <= swordSpeed / 2)
+        {
+            if (swordBaseTimer <= swordGraceTimer)
+                swordBaseTimer += Time.deltaTime;
+            else if (swordBaseTimer >= swordGraceTimer)
+            {
+                Attacking(false);
+                //attacking = false;
+                swordBaseTimer = 0;
+            }
+        }
+
         if (inControl)
             GetMousePos();
     }
+
 
     private void CheckControl()
     {

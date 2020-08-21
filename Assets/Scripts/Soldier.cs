@@ -7,8 +7,6 @@ public class Soldier : MonoBehaviour
     [SerializeField] Sword sword = null;
     [SerializeField] float attackMaxWait = 2f;
     
-
-
     Animator anim;
     private bool attackReady = true;
     private float attackTimer = 0f;

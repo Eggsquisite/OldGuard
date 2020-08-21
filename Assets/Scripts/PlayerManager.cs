@@ -13,15 +13,15 @@ public class PlayerManager : MonoBehaviour
     private bool soldierControl = false;
 
     Vector2 movement;
-    Rigidbody2D currentPlayerRB;
+    GameObject currentPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (currentPlayerRB == null)
+        if (currentPlayer == null)
         {
-            currentPlayerRB = soldier.GetComponent<Rigidbody2D>();
             soldierControl = true;
+            currentPlayer = soldier;
         }
     }
 
@@ -31,12 +31,20 @@ public class PlayerManager : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        if (movement.x != 0 || movement.y != 0)
+            currentPlayer.GetComponent<Player>().SetMovementAnim(true);
+        else
+            currentPlayer.GetComponent<Player>().SetMovementAnim(false);
+            
+            
+
         if (Input.GetKeyDown(KeyCode.Q))
             SwitchCharacter();
     }
 
     private void FixedUpdate()
     {
+        var currentPlayerRB = currentPlayer.GetComponent<Rigidbody2D>();
         currentPlayerRB.MovePosition(currentPlayerRB.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
@@ -46,9 +54,9 @@ public class PlayerManager : MonoBehaviour
         soldierControl = !soldierControl;
 
         if (soldierControl)
-            currentPlayerRB = soldier.GetComponent<Rigidbody2D>();
+            currentPlayer = soldier;
         else
-            currentPlayerRB = wizard.GetComponent<Rigidbody2D>();
+            currentPlayer = wizard;
     }
 
     public bool GetCharacterControl()
