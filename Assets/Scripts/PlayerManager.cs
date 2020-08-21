@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
 
     Vector2 movement;
     GameObject currentPlayer;
+    Player player;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class PlayerManager : MonoBehaviour
     {
         // default character is soldier
         soldierControl = !soldierControl;
+        currentPlayer.GetComponent<Player>().SetMovementAnim(false);
 
         if (soldierControl)
             currentPlayer = soldier;

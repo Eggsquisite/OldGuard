@@ -32,28 +32,11 @@ public class Sword : MonoBehaviour
     {
         CheckControl();
 
-        var mouseCursorSpeed = Input.GetAxis("Mouse X") / Time.deltaTime + Input.GetAxis("Mouse Y") / Time.deltaTime;
-
-        if (Mathf.Abs(mouseCursorSpeed) >= swordSpeed)
-        {
-            Debug.Log(mouseCursorSpeed);
-            Attacking(true);
-            //attacking = true;
-        }
-        else if (Mathf.Abs(mouseCursorSpeed) <= swordSpeed / 2)
-        {
-            if (swordBaseTimer <= swordGraceTimer)
-                swordBaseTimer += Time.deltaTime;
-            else if (swordBaseTimer >= swordGraceTimer)
-            {
-                Attacking(false);
-                //attacking = false;
-                swordBaseTimer = 0;
-            }
-        }
-
         if (inControl)
+        {
+            CheckSwordSpeed();
             GetMousePos();
+        }
     }
 
 
@@ -65,9 +48,30 @@ public class Sword : MonoBehaviour
             inControl = false;
     }
 
+    private void CheckSwordSpeed()
+    {
+        var mouseCursorSpeed = Input.GetAxis("Mouse X") / Time.deltaTime + Input.GetAxis("Mouse Y") / Time.deltaTime;
+        if (Mathf.Abs(mouseCursorSpeed) >= swordSpeed)
+            Attacking(true);
+        else if (Mathf.Abs(mouseCursorSpeed) <= swordSpeed / 2)
+            AttackGraceTimer();
+    }
+
+    private void AttackGraceTimer()
+    {
+        if (swordBaseTimer <= swordGraceTimer)
+            swordBaseTimer += Time.deltaTime;
+        else if (swordBaseTimer >= swordGraceTimer)
+        {
+            Attacking(false);
+            //attacking = false;
+            swordBaseTimer = 0;
+        }
+    }
+
     private void GetMousePos()
     {
-        Vector3 v3Pos = Camera.main.WorldToScreenPoint(pivot.transform.position);
+        Vector3 v3Pos = Camera.main.WorldToScreenPoint(pivot.position);
         v3Pos = Input.mousePosition - v3Pos;
         float angle = Mathf.Atan2(v3Pos.y, v3Pos.x) * Mathf.Rad2Deg;
 
