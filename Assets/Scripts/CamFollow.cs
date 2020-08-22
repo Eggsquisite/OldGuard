@@ -31,4 +31,9 @@ public class CamFollow : MonoBehaviour
             transform.position = smoothedPosition;
         }
     }
+
+    public void UpdatePlayer()
+    {
+        currentPlayer = playerManager.GetCurrentPlayer();
+    }
 }

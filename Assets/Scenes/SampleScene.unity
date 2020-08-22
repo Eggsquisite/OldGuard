@@ -4643,6 +4643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
+  speedSlowMult: 10
   playerManager: {fileID: 2034961333}
 --- !u!114 &1146663638
 MonoBehaviour:

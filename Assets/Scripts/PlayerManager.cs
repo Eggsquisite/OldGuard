@@ -58,6 +58,8 @@ public class PlayerManager : MonoBehaviour
             currentPlayer = soldier;
         else
             currentPlayer = wizard;
+        
+        Camera.main.gameObject.GetComponent<CamFollow>().UpdatePlayer();
     }
 
     public bool GetCharacterControl()
