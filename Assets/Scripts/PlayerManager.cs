@@ -14,7 +14,6 @@ public class PlayerManager : MonoBehaviour
 
     Vector2 movement;
     GameObject currentPlayer;
-    Player player;
 
     // Start is called before the first frame update
     void Start()
@@ -64,5 +63,13 @@ public class PlayerManager : MonoBehaviour
     public bool GetCharacterControl()
     {
         return soldierControl;
+    }
+
+    public GameObject GetCurrentPlayer()
+    {
+        if (currentPlayer != null)
+            return currentPlayer;
+
+        return null;
     }
 }

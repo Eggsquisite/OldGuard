@@ -21,34 +21,8 @@ public class Soldier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && attackReady)
-        {
-            anim.SetTrigger("attack");
-            attackReady = false;
-        }
 
-        if (!attackReady)
-            AttackTimer();
     }
 
-    private void AttackTimer()
-    {
-        if (attackTimer <= attackMaxWait)
-        {
-            attackTimer += Time.deltaTime;
-        }
-        else if (attackTimer >= attackMaxWait)
-        {
-            attackReady = true;
-            attackTimer = 0;
-        }
-    }
 
-    public void AttackSet(float status)
-    {
-        if (status == 0)
-            sword.Attacking(false);
-        else if (status == 1)
-            sword.Attacking(true);
-    }
 }
