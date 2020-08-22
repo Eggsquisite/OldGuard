@@ -15,8 +15,6 @@ public class Sword : MonoBehaviour
     private int damage = 1;
     private float swordBaseTimer = 0f;
     private bool inControl = false;
-    private bool attacking = false;
-
 
     void Start()
     {
@@ -42,9 +40,10 @@ public class Sword : MonoBehaviour
 
     private void CheckControl()
     {
-        if (playerManager.GetCharacterControl())
+        var temp = playerManager.GetCharacterControl();
+        if (temp)
             inControl = true;
-        else if (!playerManager.GetCharacterControl())
+        else
             inControl = false;
     }
 
