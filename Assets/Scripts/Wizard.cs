@@ -58,4 +58,9 @@ public class Wizard : MonoBehaviour
             wizardLight.BurstReady();
         }
     }
+
+    public GameObject GetWizardLight()
+    {
+        return wizardLight.gameObject;
+    }
 }

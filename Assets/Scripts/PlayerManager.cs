@@ -92,4 +92,9 @@ public class PlayerManager : MonoBehaviour
 
         return null;
     }
+
+    public GameObject GetWizardLight()
+    {
+        return wizard.GetComponent<Wizard>().GetWizardLight();
+    }
 }

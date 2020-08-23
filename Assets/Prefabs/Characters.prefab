@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldier: {fileID: 7642578708885884804}
   wizard: {fileID: 7642578708772459729}
-  moveSpeed: 3
+  moveSpeed: 4
   slowMultiplier: 0.5
   slowMaxTime: 0.5
 --- !u!58 &1937126337
@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4161103147346750142, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4161103148798546930, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
       value: 4
@@ -280,13 +284,17 @@ PrefabInstance:
       propertyPath: burstCD
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1826386142330733244, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.794
+      value: -11.52
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.107
+      value: -3.99
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -327,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 1826386142330733247, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_Name
       value: Wizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826386142330733247, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142761049153, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
