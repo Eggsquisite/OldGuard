@@ -165,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: swordSpeed
-      value: 125
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4161103147199606527, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_SortingLayerID
@@ -238,6 +238,10 @@ PrefabInstance:
     - target: {fileID: 4161103148798546930, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[3]
       value: -248113023
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161103148798546930, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4161103147199606522, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
@@ -379,6 +383,10 @@ PrefabInstance:
     - target: {fileID: 1826386143372038615, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[3]
       value: -248113023
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826386143372038615, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
