@@ -10,6 +10,10 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] float moveSpeed = 3f;
 
+    [Header("Slow Mode Variables")]
+    [SerializeField] float slowMultiplier = 0.5f;
+    [SerializeField] float slowMaxTime = 1f;
+
     private bool soldierControl = false;
 
     Vector2 movement;
@@ -18,6 +22,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         if (currentPlayer == null)
         {
             soldierControl = true;
@@ -60,6 +65,14 @@ public class PlayerManager : MonoBehaviour
             currentPlayer = wizard;
         
         Camera.main.gameObject.GetComponent<CamFollow>().UpdatePlayer();
+        StartCoroutine(SlowMode());
+    }
+
+    private IEnumerator SlowMode()
+    {
+        Time.timeScale = slowMultiplier;
+        yield return new WaitForSecondsRealtime(slowMaxTime);
+        Time.timeScale = 1f;
     }
 
     public bool GetCharacterControl()
