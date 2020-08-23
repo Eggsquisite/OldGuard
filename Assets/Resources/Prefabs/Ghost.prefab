@@ -170,7 +170,7 @@ MonoBehaviour:
   attackCD: 2
   enemyAI: {fileID: 0}
   deathSFX: {fileID: 8300000, guid: f7d5eeb5cc90f9649a3302322bfd852d, type: 3}
-  heartDropChance: 0.2
+  heartDropChance: 0.05
   heartPickup: {fileID: 4339261372924257178, guid: c86b4cf15471fbd47a53c91d16685152, type: 3}
 --- !u!114 &8681362882418529321
 MonoBehaviour:
@@ -184,8 +184,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bcdecafb474a01478d6a9d86097a29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minMoveSpeed: 0.5
-  maxMoveSpeed: 1
-  characters:
-  - {fileID: 0}
-  - {fileID: 0}
+  minMoveSpeed: 0.75
+  maxMoveSpeed: 1.25

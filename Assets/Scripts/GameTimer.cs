@@ -29,7 +29,7 @@ public class GameTimer : MonoBehaviour
     {
         if (gameStart)
         {
-            if (seconds == increaseFreq)
+            if (seconds >= increaseFreq)
             {   
                 // every X seconds, decrease the spawn delay
                 enemySpawner.SetSpawnDelay(0.25f, 0.5f);
@@ -42,6 +42,7 @@ public class GameTimer : MonoBehaviour
                 timer += Time.deltaTime;
                 minutes = Mathf.FloorToInt(timer / 60);
                 seconds = Mathf.FloorToInt(timer % 60);
+                Debug.Log(seconds);
             }
             else if (timer >= maxGameTime)
             {

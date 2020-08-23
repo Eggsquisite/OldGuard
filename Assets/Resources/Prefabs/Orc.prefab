@@ -235,7 +235,7 @@ MonoBehaviour:
   attackCD: 2
   enemyAI: {fileID: 1026475926}
   deathSFX: {fileID: 8300000, guid: 28463eeb32b0d9349bb0491413f02324, type: 3}
-  heartDropChance: 0.15
+  heartDropChance: 0.05
   heartPickup: {fileID: 4339261372924257178, guid: c86b4cf15471fbd47a53c91d16685152, type: 3}
 --- !u!95 &5702331170022364918
 Animator:

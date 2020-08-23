@@ -235,7 +235,7 @@ MonoBehaviour:
   attackCD: 3
   enemyAI: {fileID: 884674559}
   deathSFX: {fileID: 8300000, guid: 28463eeb32b0d9349bb0491413f02324, type: 3}
-  heartDropChance: 0.25
+  heartDropChance: 0.08
   heartPickup: {fileID: 4339261372924257178, guid: c86b4cf15471fbd47a53c91d16685152, type: 3}
 --- !u!95 &2086217297117206678
 Animator:
@@ -268,7 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66f30985f3b1794f889bd2bd64140ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   moveSpeed: 75
   nextWaypointDistance: 0.5
 --- !u!114 &884674560
