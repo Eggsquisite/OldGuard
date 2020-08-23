@@ -9,10 +9,11 @@ public class Sword : MonoBehaviour
     [SerializeField] float swordSpeed = 200f;
     [SerializeField] float swordGraceTimer = 0.75f;
 
+    [SerializeField] int swordDamage = 10;
+
     SpriteRenderer sp;
     Collider2D coll;
 
-    private int damage = 1;
     private float swordBaseTimer = 0f;
     private bool inControl = false;
 
@@ -36,7 +37,6 @@ public class Sword : MonoBehaviour
             GetMousePos();
         }
     }
-
 
     private void CheckControl()
     {
@@ -90,6 +90,6 @@ public class Sword : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
-            collision.GetComponent<Enemy>().Damage(damage);
+            collision.GetComponent<Enemy>().Damage(swordDamage);
     }
 }

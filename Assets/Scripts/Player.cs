@@ -25,9 +25,9 @@ public class Player : MonoBehaviour
         anim.SetBool("isWalking", status);
     }
 
-    private void Damage()
+    public void Damage(int dmgVal)
     {
-        health -= 1;
+        health -= dmgVal;
 
         if (health <= 0)
             Death();
@@ -40,9 +40,5 @@ public class Player : MonoBehaviour
         // restart level
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Enemy")
-            Damage();
-    }
+
 }
