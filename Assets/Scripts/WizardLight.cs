@@ -89,12 +89,12 @@ public class WizardLight : MonoBehaviour
         if (collision.tag == "Ghost")
             collision.GetComponent<Enemy>().DamageTaken(999);
         else if (collision.tag == "Enemy")
-            collision.GetComponent<Enemy>().Slowed(enemySlowFactor);
+            collision.GetComponent<Enemy>().Stunned(enemySlowFactor);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
-            collision.GetComponent<Enemy>().Unslowed();
+            collision.GetComponent<Enemy>().Unstunned();
     }
 }

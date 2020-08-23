@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     Collider2D coll;
 
     private float baseMoveSpeed;
+    private bool stunned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +22,16 @@ public class Enemy : MonoBehaviour
         if (coll == null) coll = GetComponent<Collider2D>();
     }
 
-    public void Slowed(float slowFactor)
+    public void Stunned(float slowFactor)
     {
         moveSpeed /= slowFactor;
+        stunned = true;
     }
 
-    public void Unslowed()
+    public void Unstunned()
     {
         moveSpeed = baseMoveSpeed;
+        stunned = false;
     }
 
     public void DamageTaken(int dmgValue)
@@ -53,9 +56,9 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !stunned)
         {
-            // anim.SetTrigger("attack");
+            anim.SetTrigger("attack");
             // play attack sound
             // stop movement 
             collision.GetComponent<Player>().DamageTaken(damageValue);
