@@ -6,13 +6,16 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] int health = 3;
     [SerializeField] int damageValue = 1;
+    [SerializeField] float attackCD = 2f;
     [SerializeField] float moveSpeed = 4f;
 
     Animator anim;
     Collider2D coll;
 
+    private float attackTimer = 0f;
     private float baseMoveSpeed;
     private bool stunned = false;
+    private bool attackReady = true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,23 @@ public class Enemy : MonoBehaviour
         baseMoveSpeed = moveSpeed;
         if (anim == null) anim = GetComponent<Animator>();
         if (coll == null) coll = GetComponent<Collider2D>();
+    }
+
+    private void Update()
+    {
+        if (!attackReady)
+            AttackCooldown();
+    }
+
+    private void AttackCooldown()
+    {
+        if (attackTimer < attackCD)
+            attackTimer += Time.deltaTime;
+        else if (attackTimer >= attackCD)
+        {
+            attackTimer = 0;
+            attackReady = true;
+        }
     }
 
     public void Stunned(float slowFactor)
@@ -54,10 +74,11 @@ public class Enemy : MonoBehaviour
         // play death particles (blood)
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !stunned)
+        if (collision.tag == "Player" && attackReady && !stunned)
         {
+            attackReady = false;
             anim.SetTrigger("attack");
             // play attack sound
             // stop movement 

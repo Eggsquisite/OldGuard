@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public void DamageTaken(int dmgVal)
     {
         health -= dmgVal;
+        Debug.Log("player health: " + health);
 
         if (health <= 0)
             Death();
