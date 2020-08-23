@@ -145,7 +145,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldier: {fileID: 7642578708885884804}
   wizard: {fileID: 7642578708772459729}
+  health: 8
+  numOfHearts: 4
   moveSpeed: 4.5
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullHeart: {fileID: -8595708014055669002, guid: d5b0e59d8d1bb4043831578f972fe319, type: 3}
+  halfHeart: {fileID: 1458531584214546995, guid: d5b0e59d8d1bb4043831578f972fe319, type: 3}
+  emptyHeart: {fileID: 4823867712944630053, guid: d5b0e59d8d1bb4043831578f972fe319, type: 3}
   slowMultiplier: 0.5
   slowMaxTime: 0.5
 --- !u!58 &1471242949
@@ -187,6 +197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7642578708849308495}
     m_Modifications:
+    - target: {fileID: 4161103147199606524, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: playerManager
       value: 
@@ -271,6 +285,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4161103147346750138, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 7642578708849308492}
     - target: {fileID: 4161103147346750142, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -341,6 +359,10 @@ PrefabInstance:
       propertyPath: burstCD
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1826386142330733242, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 7642578708849308492}
     - target: {fileID: 1826386142330733244, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -351,11 +373,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.52
+      value: -4.47
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.22
+      value: -7.41
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -433,6 +455,10 @@ PrefabInstance:
       propertyPath: fireSound
       value: 
       objectReference: {fileID: 8300000, guid: c6746611bb627ee4c85cb3c66ccc08fe, type: 3}
+    - target: {fileID: 1826386142761049154, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: enemySlowFactor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1826386142761049155, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6

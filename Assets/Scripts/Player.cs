@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] int health = 3;
+    [SerializeField] PlayerManager playerManager = null;
+    [SerializeField] AudioClip hurtSFX = null;
 
     Animator anim;
 
@@ -25,16 +26,11 @@ public class Player : MonoBehaviour
         anim.SetBool("isWalking", status);
     }
 
-    public void DamageTaken(int dmgVal)
+    public void DamageTaken(float dmgVal)
     {
-        health -= dmgVal;
-        Debug.Log("player health: " + health);
-
-        if (health <= 0)
-            Death();
-        else
-            // play hurt sound
-            return;
+        playerManager.DamageTaken(dmgVal);
+        if (hurtSFX != null)
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(hurtSFX);
     }
 
     private void Death()

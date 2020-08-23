@@ -5,9 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] int health = 3;
-    [SerializeField] int damageValue = 1;
+    [SerializeField] float damageValue = 1;
     [SerializeField] float attackCD = 2f;
-    [SerializeField] float moveSpeed = 4f;
+    [SerializeField] EnemyAI enemyAI = null;
 
     Animator anim;
     Collider2D coll;
@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        baseMoveSpeed = moveSpeed;
         if (anim == null) anim = GetComponent<Animator>();
         if (coll == null) coll = GetComponent<Collider2D>();
     }
@@ -39,22 +38,27 @@ public class Enemy : MonoBehaviour
         {
             attackTimer = 0;
             attackReady = true;
+            if (enemyAI != null)
+                enemyAI.SetUnstunned();
         }
     }
 
     public void Stunned(float slowFactor)
     {
         stunned = true;
-        moveSpeed /= slowFactor;
         anim.SetBool("stunned", true);
+        if (enemyAI != null)
+            enemyAI.SetStunned(slowFactor);
     }
 
     public void Unstunned()
     {
         stunned = false;
         attackReady = false;
-        moveSpeed = baseMoveSpeed;
         anim.SetBool("stunned", false);
+
+        if (enemyAI != null)
+            enemyAI.SetUnstunned();
     }
 
     public void DamageTaken(int dmgValue)
@@ -71,8 +75,10 @@ public class Enemy : MonoBehaviour
 
     private void Death()
     {
-        anim.SetTrigger("death");
         coll.enabled = false;
+        if (enemyAI != null)
+            enemyAI.SetStunned(0);
+        anim.SetTrigger("death");
         // play death sound
         // play death particles (blood)
     }
@@ -82,9 +88,10 @@ public class Enemy : MonoBehaviour
         if (collision.tag == "Player" && attackReady && !stunned)
         {
             attackReady = false;
+            if (enemyAI != null)
+                enemyAI.SetStunned(0);
             anim.SetTrigger("attack");
             // play attack sound
-            // stop movement 
             collision.GetComponent<Player>().DamageTaken(damageValue);
         }
     }

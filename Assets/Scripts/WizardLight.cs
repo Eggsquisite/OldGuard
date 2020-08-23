@@ -6,7 +6,7 @@ public class WizardLight : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float speedSlowMult = 10f;
-    [SerializeField] float enemySlowFactor = 3f;
+    [SerializeField] float enemySlowFactor = 0.3f;
     [SerializeField] AudioClip fireSound;
     [SerializeField] PlayerManager playerManager = null;
 

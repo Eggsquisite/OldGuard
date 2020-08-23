@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -8,7 +9,15 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject soldier = null;
     [SerializeField] GameObject wizard = null;
 
-    [SerializeField] float moveSpeed = 3f;
+    [Header("Player Stats")]
+    public float health;
+    public int numOfHearts;
+    public float moveSpeed = 3f;
+
+    public Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite halfHeart;
+    public Sprite emptyHeart;
 
     [Header("Slow Mode Variables")]
     [SerializeField] float slowMultiplier = 0.5f;
@@ -56,6 +65,21 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i == health - 0.5f)
+                hearts[i].sprite = halfHeart;
+            else if (i < health)
+                hearts[i].sprite = fullHeart;
+            else
+                hearts[i].sprite = emptyHeart;
+
+            if (i < numOfHearts)
+                hearts[i].enabled = true;
+            else
+                hearts[i].enabled = false;
+        }
+
     }
 
     private void FixedUpdate()
@@ -80,6 +104,15 @@ public class PlayerManager : MonoBehaviour
         findCharacter = true;
     }
 
+    public void DamageTaken(float dmgVal)
+    {
+        health -= dmgVal;
+        Debug.Log("player health: " + health);
+
+        if (health <= 0)
+            Death();
+    }
+
     public bool GetCharacterControl()
     {
         return soldierControl;
@@ -96,5 +129,10 @@ public class PlayerManager : MonoBehaviour
     public GameObject GetWizardLight()
     {
         return wizard.GetComponent<Wizard>().GetWizardLight();
+    }
+
+    private void Death()
+    { 
+    
     }
 }

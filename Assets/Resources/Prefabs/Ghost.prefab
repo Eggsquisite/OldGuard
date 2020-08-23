@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5765727378278743657}
   - component: {fileID: 5765727378278743659}
   - component: {fileID: 5765727378278743658}
-  - component: {fileID: 5765727378278743669}
   - component: {fileID: 5765727378278743668}
+  - component: {fileID: 5765727378278743669}
+  - component: {fileID: 8681362882418529321}
   m_Layer: 11
   m_Name: Ghost
   m_TagString: Ghost
@@ -131,21 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5357289, y: 0.7500076}
   m_EdgeRadius: 0
---- !u!114 &5765727378278743669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5765727378278743662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0e185bcdb9d5924c934eefca19c5d64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  damageValue: 1
-  moveSpeed: 5
 --- !u!50 &5765727378278743668
 Rigidbody2D:
   serializedVersion: 4
@@ -167,3 +153,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &5765727378278743669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765727378278743662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e185bcdb9d5924c934eefca19c5d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  damageValue: 0.5
+  attackCD: 2
+  enemyAI: {fileID: 0}
+--- !u!114 &8681362882418529321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765727378278743662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bcdecafb474a01478d6a9d86097a29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minMoveSpeed: 0.5
+  maxMoveSpeed: 1
+  characters:
+  - {fileID: 0}
+  - {fileID: 0}
