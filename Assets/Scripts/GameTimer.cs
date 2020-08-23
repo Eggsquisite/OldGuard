@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameTimer : MonoBehaviour
 {
+    public delegate void Timer();
+    public static event Timer TimerEnd;
+
     public EnemySpawner enemySpawner;
     public float increaseFreq = 30f;
     public float maxGameTime = 180f;
@@ -42,7 +45,10 @@ public class GameTimer : MonoBehaviour
             }
             else if (timer >= maxGameTime)
             {
+                // event added from Enemy.cs
+                TimerEnd?.Invoke();
                 gameWon = true;
+                gameStart = false;
                 enemySpawner.StopEnemySpawn();
             }
         } 

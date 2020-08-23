@@ -20,10 +20,21 @@ public class Enemy : MonoBehaviour
     Animator anim;
     Collider2D coll;
 
+    private static int enemiesDead = 0;
     private float attackTimer = 0f;
     private float baseMoveSpeed;
     private bool stunned = false;
     private bool attackReady = true;
+
+    private void OnEnable()
+    {
+        GameTimer.TimerEnd += Death;
+    }
+
+    private void OnDisable()
+    {
+        GameTimer.TimerEnd -= Death;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +100,8 @@ public class Enemy : MonoBehaviour
             enemyAI.SetStunned(0);
         anim.SetTrigger("death");
         Camera.main.GetComponent<AudioSource>().PlayOneShot(deathSFX);
+        enemiesDead++;
+        Debug.Log(enemiesDead);
         // play death particles (blood)
     }
 
@@ -103,6 +116,7 @@ public class Enemy : MonoBehaviour
             collision.GetComponent<Player>().DamageTaken(damageValue);
         }
     }
+
     private void Destroy()
     {
         var rand = Random.Range(0.0f, 1.0f);

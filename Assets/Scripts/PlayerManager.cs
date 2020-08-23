@@ -106,10 +106,11 @@ public class PlayerManager : MonoBehaviour
     {
         var temp = new List<Transform>();
 
-        temp.Add(soldier.transform);
+        // Give higher chance to follow wizard
         temp.Add(wizard.transform);
+        temp.Add(wizard.transform);
+        temp.Add(soldier.transform);
 
-        Debug.Log("setting up the ghost");
         return temp;
     }
 

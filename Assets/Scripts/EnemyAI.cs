@@ -24,7 +24,8 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = OnStart();
+        // event added from PlayerManager
+        target = OnStart?.Invoke();
         baseMoveSpeed = moveSpeed;
         seeker = GetComponent<Seeker>();
         if (rb == null) rb = GetComponent<Rigidbody2D>();

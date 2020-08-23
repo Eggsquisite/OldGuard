@@ -20,7 +20,8 @@ public class Ghost : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targetCharacters = OnStart();
+        // event added from PlayerManager
+        targetCharacters = OnStart?.Invoke();
         target = targetCharacters[Random.Range(0, 2)];
         moveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
     }
