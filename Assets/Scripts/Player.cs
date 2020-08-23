@@ -33,12 +33,9 @@ public class Player : MonoBehaviour
             Camera.main.GetComponent<AudioSource>().PlayOneShot(hurtSFX);
     }
 
-    private void Death()
-    { 
-        // game over text
-
-        // restart level
+    public void AddHealth(float value)
+    {
+        playerManager.AddHealth(value);
     }
-
 
 }

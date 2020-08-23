@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 4426713052417454097, guid: d5b0e59d8d1bb4043831578f972fe319, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
+  m_Color: {r: 0.9811321, g: 0.66559434, b: 0.43965825, a: 0.6862745}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -169,6 +169,9 @@ MonoBehaviour:
   damageValue: 0.5
   attackCD: 2
   enemyAI: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: f7d5eeb5cc90f9649a3302322bfd852d, type: 3}
+  heartDropChance: 0.2
+  heartPickup: {fileID: 4339261372924257178, guid: c86b4cf15471fbd47a53c91d16685152, type: 3}
 --- !u!114 &8681362882418529321
 MonoBehaviour:
   m_ObjectHideFlags: 0

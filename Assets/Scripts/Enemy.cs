@@ -9,6 +9,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] float attackCD = 2f;
     [SerializeField] EnemyAI enemyAI = null;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip deathSFX = null;
+
+    [Header("Pickup")]
+    [Range(0.0f, 1.0f)]
+    [SerializeField] float heartDropChance;
+    [SerializeField] GameObject heartPickup = null;
+
     Animator anim;
     Collider2D coll;
 
@@ -79,7 +87,7 @@ public class Enemy : MonoBehaviour
         if (enemyAI != null)
             enemyAI.SetStunned(0);
         anim.SetTrigger("death");
-        // play death sound
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(deathSFX);
         // play death particles (blood)
     }
 
@@ -91,12 +99,17 @@ public class Enemy : MonoBehaviour
             if (enemyAI != null)
                 enemyAI.SetStunned(0);
             anim.SetTrigger("attack");
-            // play attack sound
             collision.GetComponent<Player>().DamageTaken(damageValue);
         }
     }
     private void Destroy()
     {
+        var rand = Random.Range(0.0f, 1.0f);
+        if (rand <= heartDropChance)
+        {
+            Debug.Log("Instantiating");
+            Instantiate(heartPickup, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }

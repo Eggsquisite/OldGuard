@@ -57,7 +57,10 @@ public class Sword : MonoBehaviour
         if (temp)
             inControl = true;
         else
+        {
             inControl = false;
+            coll.enabled = false;
+        }
     }
 
     private void AttackCooldown()

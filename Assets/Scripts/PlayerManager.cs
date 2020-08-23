@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
     Vector2 movement;
     GameObject currentPlayer;
 
+    private float baseHealth;
     private bool soldierControl = false;
     private bool findCharacter = false;
 
@@ -33,6 +34,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        baseHealth = health;
         if (currentPlayer == null)
         {
             soldierControl = true;
@@ -111,6 +113,13 @@ public class PlayerManager : MonoBehaviour
 
         if (health <= 0)
             Death();
+    }
+
+    public void AddHealth(float value)
+    {
+        health += value;
+        if (health > baseHealth)
+            health = baseHealth;
     }
 
     public bool GetCharacterControl()

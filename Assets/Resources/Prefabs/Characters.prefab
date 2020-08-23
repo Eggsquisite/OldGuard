@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldier: {fileID: 7642578708885884804}
   wizard: {fileID: 7642578708772459729}
-  health: 8
+  health: 4
   numOfHearts: 4
   moveSpeed: 4.5
   hearts:
@@ -224,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: swordHit
       value: 
-      objectReference: {fileID: 8300000, guid: a7549a0f5caba444dafc54aa70ff5f9f, type: 3}
+      objectReference: {fileID: 8300000, guid: 12ae56f314e5ef0498476e8c8ca7526f, type: 3}
     - target: {fileID: 4161103147199606527, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_SortingLayerID
       value: -248113023
@@ -289,6 +289,10 @@ PrefabInstance:
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 7642578708849308492}
+    - target: {fileID: 4161103147346750138, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: hurtSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 519a39cdd60e3a2458887012ce19cf03, type: 3}
     - target: {fileID: 4161103147346750142, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -363,6 +367,10 @@ PrefabInstance:
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 7642578708849308492}
+    - target: {fileID: 1826386142330733242, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: hurtSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 519a39cdd60e3a2458887012ce19cf03, type: 3}
     - target: {fileID: 1826386142330733244, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
