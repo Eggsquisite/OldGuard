@@ -30,6 +30,18 @@ public class PlayerManager : MonoBehaviour
     private bool soldierControl = false;
     private bool findCharacter = false;
 
+    private void OnEnable()
+    {
+        Ghost.OnStart += SetCharacters;
+        EnemyAI.OnStart += SetSoldier;
+    }
+
+    private void OnDisable()
+    {
+        Ghost.OnStart -= SetCharacters;
+        EnemyAI.OnStart -= SetSoldier;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +100,22 @@ public class PlayerManager : MonoBehaviour
     {
         var currentPlayerRB = currentPlayer.GetComponent<Rigidbody2D>();
         currentPlayerRB.MovePosition(currentPlayerRB.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private List<Transform> SetCharacters()
+    {
+        var temp = new List<Transform>();
+
+        temp.Add(soldier.transform);
+        temp.Add(wizard.transform);
+
+        Debug.Log("setting up the ghost");
+        return temp;
+    }
+
+    private Transform SetSoldier()
+    {
+        return soldier.transform;
     }
 
     private void SwitchCharacter()

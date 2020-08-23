@@ -89,7 +89,7 @@ public class WizardLight : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ghost")
-            collision.GetComponent<Enemy>().DamageTaken(999);
+            collision.GetComponent<Enemy>().DamageTaken(999, transform);
         else if (collision.tag == "Enemy")
             collision.GetComponent<Enemy>().Stunned(enemySlowFactor);
     }

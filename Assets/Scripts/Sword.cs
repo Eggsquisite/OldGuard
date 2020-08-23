@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
+    [SerializeField] Transform soldier = null;
     [SerializeField] Transform pivot = null;
     [SerializeField] PlayerManager playerManager = null;
 
@@ -120,7 +121,7 @@ public class Sword : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             audioSource.PlayOneShot(swordHit);
-            collision.GetComponent<Enemy>().DamageTaken(swordDamage);
+            collision.GetComponent<Enemy>().DamageTaken(swordDamage, soldier);
         }
     }
 }

@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: swordSpeed
-      value: 100
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: swordCooldown
@@ -225,6 +225,10 @@ PrefabInstance:
       propertyPath: swordHit
       value: 
       objectReference: {fileID: 8300000, guid: 12ae56f314e5ef0498476e8c8ca7526f, type: 3}
+    - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: soldier
+      value: 
+      objectReference: {fileID: 7642578708885884806}
     - target: {fileID: 4161103147199606527, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_SortingLayerID
       value: -248113023
@@ -235,11 +239,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161103147346750017, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.29
+      value: -11.34
       objectReference: {fileID: 0}
     - target: {fileID: 4161103147346750017, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.56
+      value: -0.38
       objectReference: {fileID: 0}
     - target: {fileID: 4161103147346750017, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -292,7 +296,7 @@ PrefabInstance:
     - target: {fileID: 4161103147346750138, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: hurtSFX
       value: 
-      objectReference: {fileID: 8300000, guid: 519a39cdd60e3a2458887012ce19cf03, type: 3}
+      objectReference: {fileID: 8300000, guid: 74d4ea299d3659f40959aef2e1429056, type: 3}
     - target: {fileID: 4161103147346750142, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -370,7 +374,7 @@ PrefabInstance:
     - target: {fileID: 1826386142330733242, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: hurtSFX
       value: 
-      objectReference: {fileID: 8300000, guid: 519a39cdd60e3a2458887012ce19cf03, type: 3}
+      objectReference: {fileID: 8300000, guid: 73903a7eeb7fc1e4f8d6bcefd5327bed, type: 3}
     - target: {fileID: 1826386142330733244, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -381,11 +385,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.47
+      value: -11.43
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.41
+      value: -4.72
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -498,6 +502,10 @@ PrefabInstance:
     - target: {fileID: 1826386142761049156, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_Color.g
       value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826386142761049157, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1826386143372038615, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size

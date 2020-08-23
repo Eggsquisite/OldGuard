@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ghost
+  - Civilian
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - Enemy
   - Ghost
   - Obstacle
-  - 
-  - 
+  - Civilian
+  - PlayerBoundary
   - 
   - 
   - 

@@ -69,10 +69,11 @@ public class Enemy : MonoBehaviour
             enemyAI.SetUnstunned();
     }
 
-    public void DamageTaken(int dmgValue)
+    public void DamageTaken(int dmgValue, Transform player)
     {
         health -= dmgValue;
-        Debug.Log(health);
+        if (enemyAI != null)
+            enemyAI.SetTarget(player);
 
         if (health <= 0)
             Death();

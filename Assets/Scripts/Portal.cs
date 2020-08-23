@@ -11,7 +11,6 @@ public class Portal : MonoBehaviour
     Collider2D coll;
     private float tpTimer = 0f;
     private bool teleported = false;
-    private bool cooldownStart = false;
 
     private void Start()
     {
@@ -23,8 +22,7 @@ public class Portal : MonoBehaviour
     {
         if (!teleported)
             transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
-        
-        if (cooldownStart)
+        else
             TeleportCD();
     }
 
@@ -34,14 +32,6 @@ public class Portal : MonoBehaviour
         {
             teleportDest.GetComponent<Portal>().PlayerTeleported();
             collision.transform.position = teleportDest.position;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player" && teleported)
-        {
-            cooldownStart = true;
         }
     }
 
@@ -59,7 +49,6 @@ public class Portal : MonoBehaviour
         {
             tpTimer = 0;
             teleported = false;
-            cooldownStart = false;
             coll.enabled = true;
         }
     }

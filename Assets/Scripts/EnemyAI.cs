@@ -5,7 +5,8 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform target;
+    public delegate Transform SetCharacter();
+    public static event SetCharacter OnStart;
 
     public float moveSpeed = 200f;
     public float nextWaypointDistance = 2f;
@@ -18,10 +19,12 @@ public class EnemyAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+    Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
+        target = OnStart();
         baseMoveSpeed = moveSpeed;
         seeker = GetComponent<Seeker>();
         if (rb == null) rb = GetComponent<Rigidbody2D>();
@@ -82,5 +85,10 @@ public class EnemyAI : MonoBehaviour
     public void Dying()
     {
         dying = true;
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }

@@ -6,10 +6,13 @@ public class Ghost : MonoBehaviour
 {
     [SerializeField] float minMoveSpeed = 1f;
     [SerializeField] float maxMoveSpeed = 2f;
-    [SerializeField] List<Transform> characters;
+    //[SerializeField] List<Transform> characters;
+
+    public delegate List<Transform> SetCharacters();
+    public static event SetCharacters OnStart;
 
     Vector3 smoothedPosition;
-    List<GameObject> targetCharacters = null;
+    List<Transform> targetCharacters = null;
 
     Transform target;
     float moveSpeed;
@@ -17,7 +20,8 @@ public class Ghost : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = characters[Random.Range(0, 2)];
+        targetCharacters = OnStart();
+        target = targetCharacters[Random.Range(0, 2)];
         moveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
     }
 

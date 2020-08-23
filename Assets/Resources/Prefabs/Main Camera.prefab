@@ -132,8 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
   smoothSpeed: 5
-  xVal: 0
-  yVal: 0
+  xVal: 1
+  yVal: 1
   offset: {x: 0, y: 0, z: -10}
 --- !u!114 &717130306
 MonoBehaviour:
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 16
-  m_RefResolutionX: 398
+  m_RefResolutionX: 320
   m_RefResolutionY: 224
   m_UpscaleRT: 0
   m_PixelSnapping: 0
