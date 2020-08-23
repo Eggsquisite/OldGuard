@@ -6,14 +6,20 @@ public class Sword : MonoBehaviour
 {
     [SerializeField] Transform pivot = null;
     [SerializeField] PlayerManager playerManager = null;
+
+    [Header("Sword Modifiers")]
     [SerializeField] float swordSpeed = 200f;
     [SerializeField] float swordGraceTimer = 0.75f;
     [SerializeField] float swordCooldown = 0.5f;
-
     [SerializeField] int swordDamage = 10;
+
+    [Header("Sword Sounds")]
+    [SerializeField] AudioClip swordSwing;
+    [SerializeField] AudioClip swordHit;
 
     SpriteRenderer sp;
     Collider2D coll;
+    AudioSource audioSource;
 
     private float swordBaseTimer = 0f;
     private float swordCDTimer = 0f;
@@ -24,6 +30,7 @@ public class Sword : MonoBehaviour
     {
         if (sp == null) sp = GetComponent<SpriteRenderer>();
         if (coll == null) coll = GetComponent<Collider2D>();
+        if (audioSource == null) audioSource = Camera.main.GetComponent<AudioSource>();
 
         coll.enabled = false;
     }
@@ -34,9 +41,14 @@ public class Sword : MonoBehaviour
 
         if (inControl)
         {
-            CheckSwordSpeed();
+            if (!attackCooldown)
+                CheckSwordSpeed();
+
             GetMousePos();
         }
+
+        if (attackCooldown)
+            AttackCooldown();
     }
 
     private void CheckControl()
@@ -63,7 +75,7 @@ public class Sword : MonoBehaviour
     private void CheckSwordSpeed()
     {
         var mouseCursorSpeed = Input.GetAxis("Mouse X") / Time.deltaTime + Input.GetAxis("Mouse Y") / Time.deltaTime;
-        if (Mathf.Abs(mouseCursorSpeed) >= swordSpeed)
+        if (Mathf.Abs(mouseCursorSpeed) >= swordSpeed && !attackCooldown)
             Attacking(true);
         else if (Mathf.Abs(mouseCursorSpeed) <= swordSpeed / 2)
             AttackGraceTimer();
@@ -97,11 +109,15 @@ public class Sword : MonoBehaviour
     public void Attacking(bool status)
     {
         coll.enabled = status;
+        attackCooldown = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
+        {
+            audioSource.PlayOneShot(swordHit);
             collision.GetComponent<Enemy>().DamageTaken(swordDamage);
+        }
     }
 }

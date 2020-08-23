@@ -7,6 +7,7 @@ public class WizardLight : MonoBehaviour
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float speedSlowMult = 10f;
     [SerializeField] float enemySlowFactor = 3f;
+    [SerializeField] AudioClip fireSound;
     [SerializeField] PlayerManager playerManager = null;
 
     Vector3 mousePosition;
@@ -70,6 +71,7 @@ public class WizardLight : MonoBehaviour
         coll.enabled = true;
         anim.SetTrigger("burst");
         moveSpeed /= speedSlowMult;
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(fireSound);
     }
 
     private void BurstOff()

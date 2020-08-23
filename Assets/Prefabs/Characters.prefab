@@ -199,6 +199,18 @@ PrefabInstance:
       propertyPath: swordSpeed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: swordCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: swordSwing
+      value: 
+      objectReference: {fileID: 8300000, guid: 911ab6b54550d3641a094a5207215971, type: 3}
+    - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: swordHit
+      value: 
+      objectReference: {fileID: 8300000, guid: a7549a0f5caba444dafc54aa70ff5f9f, type: 3}
     - target: {fileID: 4161103147199606527, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_SortingLayerID
       value: -248113023
@@ -417,6 +429,10 @@ PrefabInstance:
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 7642578708849308492}
+    - target: {fileID: 1826386142761049154, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: fireSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c6746611bb627ee4c85cb3c66ccc08fe, type: 3}
     - target: {fileID: 1826386142761049155, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
