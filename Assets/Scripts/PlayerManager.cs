@@ -14,10 +14,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float slowMultiplier = 0.5f;
     [SerializeField] float slowMaxTime = 1f;
 
-    private bool soldierControl = false;
-
     Vector2 movement;
     GameObject currentPlayer;
+
+    private bool soldierControl = false;
+    private bool findCharacter = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,10 +42,20 @@ public class PlayerManager : MonoBehaviour
         else
             currentPlayer.GetComponent<Player>().SetMovementAnim(false);
             
-            
-
         if (Input.GetKeyDown(KeyCode.Q))
             SwitchCharacter();
+
+        if (findCharacter)
+        {
+            if (Time.timeScale < 1f)
+                Time.timeScale += Time.unscaledDeltaTime / slowMaxTime;
+            else if (Time.timeScale >= 1f)
+            {
+                Time.timeScale = 1f;
+                findCharacter = false;
+            }
+        }
+
     }
 
     private void FixedUpdate()
@@ -63,16 +74,10 @@ public class PlayerManager : MonoBehaviour
             currentPlayer = soldier;
         else
             currentPlayer = wizard;
-        
-        Camera.main.gameObject.GetComponent<CamFollow>().UpdatePlayer();
-        StartCoroutine(SlowMode());
-    }
 
-    private IEnumerator SlowMode()
-    {
+        Camera.main.gameObject.GetComponent<CamFollow>().UpdatePlayer();
         Time.timeScale = slowMultiplier;
-        yield return new WaitForSecondsRealtime(slowMaxTime);
-        Time.timeScale = 1f;
+        findCharacter = true;
     }
 
     public bool GetCharacterControl()
