@@ -82,6 +82,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1000345730
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642578708772459729}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 99907560b2eb7dc4ca1ac820b410da34, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.014568329, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.39801884
 --- !u!1 &7642578708849308493
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,9 +145,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldier: {fileID: 7642578708885884804}
   wizard: {fileID: 7642578708772459729}
-  moveSpeed: 4
+  moveSpeed: 4.5
   slowMultiplier: 0.5
   slowMaxTime: 0.5
+--- !u!58 &1471242949
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642578708885884804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008372784, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.42464495
 --- !u!58 &1937126337
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -231,6 +263,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4161103147346750142, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 99907560b2eb7dc4ca1ac820b410da34, type: 2}
     - target: {fileID: 4161103148798546930, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
       value: 4
@@ -245,10 +281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161103148798546930, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4161103147199606522, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+    - {fileID: 4161103147346750140, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
 --- !u!1 &7642578708885884804 stripped
 GameObject:
@@ -276,6 +313,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1146663635, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.061410006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146663635, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_Radius
+      value: 3.6366239
+      objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733240, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: playerManager
       value: 
@@ -288,13 +333,17 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1826386142330733244, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.52
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.99
+      value: -7.22
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733245, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -356,6 +405,14 @@ PrefabInstance:
       propertyPath: m_BlendStyleIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1826386142761049153, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826386142761049153, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1826386142761049154, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: playerManager
       value: 
@@ -367,6 +424,14 @@ PrefabInstance:
     - target: {fileID: 1826386142761049155, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826386142761049155, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826386142761049155, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142761049156, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_SortingLayerID
@@ -398,9 +463,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826386143372038615, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1826386142330733243, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
 --- !u!1 &7642578708772459729 stripped
 GameObject:

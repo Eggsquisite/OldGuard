@@ -46,12 +46,14 @@ public class Enemy : MonoBehaviour
     {
         moveSpeed /= slowFactor;
         stunned = true;
+        anim.SetBool("stunned", true);
     }
 
     public void Unstunned()
     {
         moveSpeed = baseMoveSpeed;
         stunned = false;
+        anim.SetBool("stunned", false);
     }
 
     public void DamageTaken(int dmgValue)
