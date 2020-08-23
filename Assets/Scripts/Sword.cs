@@ -8,6 +8,7 @@ public class Sword : MonoBehaviour
     [SerializeField] PlayerManager playerManager = null;
     [SerializeField] float swordSpeed = 200f;
     [SerializeField] float swordGraceTimer = 0.75f;
+    [SerializeField] float swordCooldown = 0.5f;
 
     [SerializeField] int swordDamage = 10;
 
@@ -15,15 +16,15 @@ public class Sword : MonoBehaviour
     Collider2D coll;
 
     private float swordBaseTimer = 0f;
+    private float swordCDTimer = 0f;
     private bool inControl = false;
+    private bool attackCooldown = false;
 
     void Start()
     {
-        // pivot = new GameObject().transform;
-        // transform.parent = pivot;
-
         if (sp == null) sp = GetComponent<SpriteRenderer>();
         if (coll == null) coll = GetComponent<Collider2D>();
+
         coll.enabled = false;
     }
 
@@ -47,6 +48,18 @@ public class Sword : MonoBehaviour
             inControl = false;
     }
 
+    private void AttackCooldown()
+    {
+        // useless right now
+        if (swordCDTimer < swordCooldown)
+            swordCDTimer += Time.deltaTime;
+        else if (swordCDTimer >= swordCooldown)
+        {
+            swordCDTimer = 0;
+            attackCooldown = false;
+        }
+    }
+
     private void CheckSwordSpeed()
     {
         var mouseCursorSpeed = Input.GetAxis("Mouse X") / Time.deltaTime + Input.GetAxis("Mouse Y") / Time.deltaTime;
@@ -63,7 +76,6 @@ public class Sword : MonoBehaviour
         else if (swordBaseTimer >= swordGraceTimer)
         {
             Attacking(false);
-            //attacking = false;
             swordBaseTimer = 0;
         }
     }
@@ -90,6 +102,6 @@ public class Sword : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
-            collision.GetComponent<Enemy>().Damage(swordDamage);
+            collision.GetComponent<Enemy>().DamageTaken(swordDamage);
     }
 }

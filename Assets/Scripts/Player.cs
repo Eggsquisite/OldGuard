@@ -25,12 +25,15 @@ public class Player : MonoBehaviour
         anim.SetBool("isWalking", status);
     }
 
-    public void Damage(int dmgVal)
+    public void DamageTaken(int dmgVal)
     {
         health -= dmgVal;
 
         if (health <= 0)
             Death();
+        else
+            // play hurt sound
+            return;
     }
 
     private void Death()

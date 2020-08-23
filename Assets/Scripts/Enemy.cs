@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         moveSpeed = baseMoveSpeed;
     }
 
-    public void Damage(int dmgValue)
+    public void DamageTaken(int dmgValue)
     {
         health -= dmgValue;
         Debug.Log(health);
@@ -51,11 +51,6 @@ public class Enemy : MonoBehaviour
         // play death particles (blood)
     }
 
-    private void Destroy()
-    {
-        Destroy(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -63,7 +58,11 @@ public class Enemy : MonoBehaviour
             // anim.SetTrigger("attack");
             // play attack sound
             // stop movement 
-            collision.GetComponent<Player>().Damage(damageValue);
+            collision.GetComponent<Player>().DamageTaken(damageValue);
         }
+    }
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
