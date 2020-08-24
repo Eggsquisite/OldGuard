@@ -16,11 +16,12 @@ public class Enemy : MonoBehaviour
     [Range(0.0f, 1.0f)]
     [SerializeField] float heartDropChance;
     [SerializeField] GameObject heartPickup = null;
+    [SerializeField] GameObject bones = null;
 
     Animator anim;
     Collider2D coll;
 
-    private static int enemiesDead = 0;
+    public static int enemiesDead = 0;
     private float attackTimer = 0f;
     private float baseMoveSpeed;
     private bool stunned = false;
@@ -99,9 +100,13 @@ public class Enemy : MonoBehaviour
         if (enemyAI != null)
             enemyAI.SetStunned(0);
         anim.SetTrigger("death");
-        Camera.main.GetComponent<AudioSource>().PlayOneShot(deathSFX);
-        enemiesDead++;
-        Debug.Log(enemiesDead);
+
+        if (!GameTimer.gameWon)
+        {
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(deathSFX);
+            enemiesDead++;
+        }
+        // Debug.Log(enemiesDead);
         // play death particles (blood)
     }
 
@@ -125,6 +130,10 @@ public class Enemy : MonoBehaviour
             Debug.Log("Instantiating");
             Instantiate(heartPickup, transform.position, Quaternion.identity);
         }
+
+        if (bones != null)
+            Instantiate(bones, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 }

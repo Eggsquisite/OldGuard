@@ -21,6 +21,7 @@ public class Sword : MonoBehaviour
     SpriteRenderer sp;
     Collider2D coll;
     AudioSource audioSource;
+    Animator anim;
 
     private float swordBaseTimer = 0f;
     private float swordCDTimer = 0f;
@@ -32,6 +33,7 @@ public class Sword : MonoBehaviour
         if (sp == null) sp = GetComponent<SpriteRenderer>();
         if (coll == null) coll = GetComponent<Collider2D>();
         if (audioSource == null) audioSource = Camera.main.GetComponent<AudioSource>();
+        if (anim == null) anim = GetComponent<Animator>();
 
         coll.enabled = false;
     }
@@ -44,10 +46,12 @@ public class Sword : MonoBehaviour
 
             if (inControl)
             {
-                if (!attackCooldown)
-                    CheckSwordSpeed();
-
                 GetMousePos();
+                if (!attackCooldown && Input.GetMouseButton(0))
+                    Attack();
+
+                //if (!attackCooldown)
+                    //CheckSwordSpeed();
             }
 
             if (attackCooldown)
@@ -77,6 +81,12 @@ public class Sword : MonoBehaviour
             swordCDTimer = 0;
             attackCooldown = false;
         }
+    }
+
+    private void Attack()
+    {
+        anim.SetTrigger("attack");
+        attackCooldown = true;
     }
 
     private void CheckSwordSpeed()

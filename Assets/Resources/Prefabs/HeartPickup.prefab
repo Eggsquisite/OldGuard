@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4339261372924257183}
   - component: {fileID: 4339261372924257181}
   - component: {fileID: 4339261372924257182}
+  - component: {fileID: -1968612331511662877}
   m_Layer: 0
   m_Name: HeartPickup
   m_TagString: Untagged
@@ -117,9 +118,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000023841858, y: -0.0066733956}
+  m_Offset: {x: -0.018227845, y: -0.0066733956}
   serializedVersion: 2
-  m_Radius: 0.2397402
+  m_Radius: 0.37948886
 --- !u!114 &4339261372924257182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +135,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthValue: 1
   pickupSound: {fileID: 8300000, guid: b867e57c07f031548a13f1d371942b81, type: 3}
+--- !u!114 &-1968612331511662877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339261372924257178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bcdecafb474a01478d6a9d86097a29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minMoveSpeed: 0.25
+  maxMoveSpeed: 0.75
