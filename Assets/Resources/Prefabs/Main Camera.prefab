@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5161376220912593608}
   - component: {fileID: 5161376220912593611}
   - component: {fileID: 5161376220912593460}
-  - component: {fileID: 717130306}
   - component: {fileID: 3874323457440653358}
   m_Layer: 0
   m_Name: Main Camera
@@ -63,7 +62,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.125662
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -104,7 +103,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -135,26 +134,6 @@ MonoBehaviour:
   xVal: 1
   yVal: 1
   offset: {x: 0, y: 0, z: -10}
---- !u!114 &717130306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5161376220912593609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 16
-  m_RefResolutionX: 320
-  m_RefResolutionY: 224
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 1
 --- !u!82 &3874323457440653358
 AudioSource:
   m_ObjectHideFlags: 0
