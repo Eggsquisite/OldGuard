@@ -32091,6 +32091,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 717130306, guid: e3feb18b6ccebdc49b89dff42c92c306, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5161376220912593460, guid: e3feb18b6ccebdc49b89dff42c92c306, type: 3}
       propertyPath: playerManager
       value: 
@@ -32143,7 +32147,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 717130306, guid: e3feb18b6ccebdc49b89dff42c92c306, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e3feb18b6ccebdc49b89dff42c92c306, type: 3}
 --- !u!1 &310283762
 GameObject:
