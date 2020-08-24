@@ -9,6 +9,7 @@ public class Wizard : MonoBehaviour
 
     [SerializeField] float burstCD = 2f;
 
+    public bool isMenu = false;
     private float burstTimer = 0f;
     private bool inControl = false;
     private bool burstReady = false;
@@ -30,7 +31,7 @@ public class Wizard : MonoBehaviour
 
             if (inControl)
             {
-                if (Input.GetMouseButtonDown(0) && burstReady)
+                if (Input.GetMouseButtonDown(0) && burstReady && !isMenu)
                 {
                     wizardLight.Burst();
                     burstReady = false;
