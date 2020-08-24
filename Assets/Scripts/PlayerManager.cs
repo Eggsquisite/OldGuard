@@ -5,6 +5,14 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
+    [Header("This Script is a Mess")]
+    [SerializeField] GameObject pauseText = null;
+
+    [Header("Death Stuff")]
+    [SerializeField] AudioClip deathSFX;
+    [SerializeField] GameObject retryText = null;
+    [SerializeField] LevelManager levelManager = null;
+
     [Header("Players")]
     [SerializeField] GameObject soldier = null;
     [SerializeField] GameObject wizard = null;
@@ -25,6 +33,8 @@ public class PlayerManager : MonoBehaviour
 
     Vector2 movement;
     GameObject currentPlayer;
+    public static bool paused = false;
+    public static bool death = false;
 
     private float baseHealth;
     private bool soldierControl = false;
@@ -52,30 +62,56 @@ public class PlayerManager : MonoBehaviour
             soldierControl = true;
             currentPlayer = soldier;
         }
+
+        retryText.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        if (movement.x != 0 || movement.y != 0)
-            currentPlayer.GetComponent<Player>().SetMovementAnim(true);
-        else
-            currentPlayer.GetComponent<Player>().SetMovementAnim(false);
-            
-        if (Input.GetKeyDown(KeyCode.Q))
-            SwitchCharacter();
-
-        if (findCharacter)
+        if (!paused && Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Time.timeScale < 1f)
-                Time.timeScale += Time.unscaledDeltaTime / slowMaxTime;
-            else if (Time.timeScale >= 1f)
+            paused = true;
+            pauseText.SetActive(true);
+            Time.timeScale = 0f;
+            Camera.main.GetComponent<AudioSource>().Pause();
+        }
+        else if (paused && Input.GetKeyDown(KeyCode.Escape))
+        {
+            paused = false;
+            pauseText.SetActive(false);
+            Time.timeScale = 1f;
+            Camera.main.GetComponent<AudioSource>().Play();
+        }
+        else if (paused && Input.GetKeyDown(KeyCode.Q))
+            levelManager.QuitGame();
+        else if (death && Input.GetKeyDown(KeyCode.R))
+            levelManager.RestartLevel();
+        else if (death && Input.GetKeyDown(KeyCode.Escape))
+            levelManager.QuitGame();
+
+        if (!death && !paused)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+
+            if (movement.x != 0 || movement.y != 0)
+                currentPlayer.GetComponent<Player>().SetMovementAnim(true);
+            else
+                currentPlayer.GetComponent<Player>().SetMovementAnim(false);
+
+            if (Input.GetKeyDown(KeyCode.Q))
+                SwitchCharacter();
+
+            if (findCharacter)
             {
-                Time.timeScale = 1f;
-                findCharacter = false;
+                if (Time.timeScale < 1f)
+                    Time.timeScale += Time.unscaledDeltaTime / slowMaxTime;
+                else if (Time.timeScale >= 1f)
+                {
+                    Time.timeScale = 1f;
+                    findCharacter = false;
+                }
             }
         }
 
@@ -93,7 +129,6 @@ public class PlayerManager : MonoBehaviour
             else
                 hearts[i].enabled = false;
         }
-
     }
 
     private void FixedUpdate()
@@ -170,7 +205,13 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void Death()
-    { 
-    
+    {
+        retryText.SetActive(true);
+        if (!death) 
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(deathSFX);
+
+        death = true;
+        wizard.GetComponent<Animator>().SetTrigger("death");
+        soldier.GetComponent<Animator>().SetTrigger("death");
     }
 }

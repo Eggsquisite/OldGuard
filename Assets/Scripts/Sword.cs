@@ -38,18 +38,21 @@ public class Sword : MonoBehaviour
 
     void Update()
     {
-        CheckControl();
-
-        if (inControl)
+        if (!PlayerManager.paused && !PlayerManager.death)
         {
-            if (!attackCooldown)
-                CheckSwordSpeed();
+            CheckControl();
 
-            GetMousePos();
+            if (inControl)
+            {
+                if (!attackCooldown)
+                    CheckSwordSpeed();
+
+                GetMousePos();
+            }
+
+            if (attackCooldown)
+                AttackCooldown();
         }
-
-        if (attackCooldown)
-            AttackCooldown();
     }
 
     private void CheckControl()

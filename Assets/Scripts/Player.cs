@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         if (!invulnerable)
         {
             playerManager.DamageTaken(dmgVal);
-            if (hurtSFX != null)
+            if (!PlayerManager.death)
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(hurtSFX);
             invulnerable = true;
         }

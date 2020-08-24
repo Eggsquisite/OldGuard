@@ -16,6 +16,11 @@ public class CamFollow : MonoBehaviour
     private bool playerSet = false;
     bool isWizard = false;
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {

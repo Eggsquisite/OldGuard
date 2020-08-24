@@ -8,8 +8,9 @@ public class GameTimer : MonoBehaviour
     public static event Timer TimerEnd;
 
     public EnemySpawner enemySpawner;
-    public float increaseFreq = 30f;
+    public float increaseFreq = 59f;
     public float maxGameTime = 180f;
+    public GameObject startText, endText;
 
     private float timer = 0f;
     private float baseFreq;
@@ -29,10 +30,10 @@ public class GameTimer : MonoBehaviour
     {
         if (gameStart)
         {
-            if (seconds >= increaseFreq)
+            if (seconds == increaseFreq)
             {   
                 // every X seconds, decrease the spawn delay
-                enemySpawner.SetSpawnDelay(0.25f, 0.5f);
+                enemySpawner.SetSpawnDelay(0.5f, 0.75f);
                 Debug.Log("increasing spawn freq " + seconds);
                 increaseFreq += baseFreq;
             }
@@ -42,7 +43,6 @@ public class GameTimer : MonoBehaviour
                 timer += Time.deltaTime;
                 minutes = Mathf.FloorToInt(timer / 60);
                 seconds = Mathf.FloorToInt(timer % 60);
-                Debug.Log(seconds);
             }
             else if (timer >= maxGameTime)
             {
@@ -52,11 +52,22 @@ public class GameTimer : MonoBehaviour
                 gameStart = false;
                 enemySpawner.StopEnemySpawn();
             }
-        } 
+        }
+
+        if (gameWon)
+            endText.SetActive(true);
     }
 
     public void StartGame()
     {
         gameStart = true;
+        startText.SetActive(true);
+        StartCoroutine(TimerCooldown());
+    }
+
+    private IEnumerator TimerCooldown()
+    {
+        yield return new WaitForSecondsRealtime(5f);
+        startText.SetActive(false);
     }
 }

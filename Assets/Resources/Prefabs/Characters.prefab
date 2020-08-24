@@ -143,6 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa47779edb39be42b938c9f7427c21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseText: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: ad1ab4bf01d7d2846a58048cb94f7332, type: 3}
+  retryText: {fileID: 0}
+  levelManager: {fileID: 0}
   soldier: {fileID: 7642578708885884804}
   wizard: {fileID: 7642578708772459729}
   health: 4
@@ -324,6 +328,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4161103147199606522, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
     - {fileID: 4161103147346750140, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
+    - {fileID: 4161103147346750143, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
 --- !u!1 &7642578708885884804 stripped
 GameObject:

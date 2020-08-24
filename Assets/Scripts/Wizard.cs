@@ -22,19 +22,21 @@ public class Wizard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!burstReady)  BurstCooldown();
-
-        CheckControl();
-
-        if (inControl)
+        if (!PlayerManager.paused && !PlayerManager.death)
         {
-            if (Input.GetMouseButtonDown(0) && burstReady)
+            if (!burstReady) BurstCooldown();
+
+            CheckControl();
+
+            if (inControl)
             {
-                wizardLight.Burst();
-                burstReady = false;
+                if (Input.GetMouseButtonDown(0) && burstReady)
+                {
+                    wizardLight.Burst();
+                    burstReady = false;
+                }
             }
         }
-
     }
 
     private void CheckControl()

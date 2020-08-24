@@ -32,19 +32,22 @@ public class WizardLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckControl();
-
-        if (inControl)
-            MoveLight();
-
-        if (moveSpeedRecover)
+        if (!PlayerManager.paused && !PlayerManager.death)
         {
-            if (moveSpeed < baseMoveSpeed)
-                moveSpeed += Time.deltaTime * speedSlowMult / 2;
-            else if (moveSpeed >= baseMoveSpeed)
+            CheckControl();
+
+            if (inControl)
+                MoveLight();
+
+            if (moveSpeedRecover)
             {
-                moveSpeed = baseMoveSpeed;
-                moveSpeedRecover = false;
+                if (moveSpeed < baseMoveSpeed)
+                    moveSpeed += Time.deltaTime * speedSlowMult / 2;
+                else if (moveSpeed >= baseMoveSpeed)
+                {
+                    moveSpeed = baseMoveSpeed;
+                    moveSpeedRecover = false;
+                }
             }
         }
     }
