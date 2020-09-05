@@ -149,10 +149,11 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   soldier: {fileID: 7642578708885884804}
   wizard: {fileID: 7642578708772459729}
-  health: 4
-  numOfHearts: 4
+  health: 5
+  numOfHearts: 5
   moveSpeed: 4.5
   hearts:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -375,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: swordCooldown
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4161103147199606525, guid: 0e895c7fcebb69941ac8a0e48b742fdf, type: 3}
       propertyPath: swordSwing
@@ -522,11 +523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146663635, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_Offset.x
-      value: 0.061410006
+      value: -0.04472486
       objectReference: {fileID: 0}
     - target: {fileID: 1146663635, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_Radius
-      value: 3.6366239
+      value: 2.3629968
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733240, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: playerManager
@@ -534,7 +535,7 @@ PrefabInstance:
       objectReference: {fileID: 7642578708849308492}
     - target: {fileID: 1826386142330733240, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: burstCD
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142330733242, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: playerManager
@@ -630,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142761049153, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1826386142761049154, guid: 87405646b2de6354088eed35905b6d8d, type: 3}
       propertyPath: playerManager

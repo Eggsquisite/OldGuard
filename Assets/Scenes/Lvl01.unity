@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: hearts.Array.data[3]
       value: 
       objectReference: {fileID: 1994115387}
+    - target: {fileID: 7642578708849308492, guid: a74f2ba0066716740ba355977570f4eb, type: 3}
+      propertyPath: hearts.Array.data[4]
+      value: 
+      objectReference: {fileID: 1269662647}
     - target: {fileID: 7642578708849308493, guid: a74f2ba0066716740ba355977570f4eb, type: 3}
       propertyPath: m_Name
       value: Characters
@@ -267,10 +271,6 @@ PrefabInstance:
     - target: {fileID: 7642578708849308495, guid: a74f2ba0066716740ba355977570f4eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642578709015169850, guid: a74f2ba0066716740ba355977570f4eb, type: 3}
-      propertyPath: swordCooldown
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a74f2ba0066716740ba355977570f4eb, type: 3}
@@ -41890,6 +41890,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269662647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1269662647, guid: 922e54cfacbf6ec43b57d7fcb26952b8, type: 3}
+  m_PrefabInstance: {fileID: 7886267203794402981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1431880593 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7886267204510072116, guid: 922e54cfacbf6ec43b57d7fcb26952b8, type: 3}
@@ -43621,18 +43632,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 289235136, guid: 922e54cfacbf6ec43b57d7fcb26952b8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -54
-      objectReference: {fileID: 0}
-    - target: {fileID: 1564717507, guid: 922e54cfacbf6ec43b57d7fcb26952b8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -54
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600909298, guid: 922e54cfacbf6ec43b57d7fcb26952b8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7886267204173140235, guid: 922e54cfacbf6ec43b57d7fcb26952b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
